@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
+int count=0;
 void swap(int *a, int *b) {
     int temp = *a;
     *a = *b;
@@ -8,6 +8,7 @@ void swap(int *a, int *b) {
 void heapifyUp(int heap[], int index) {
     int parent = index / 2; 
     while (index > 1 && heap[parent] < heap[index]) { 
+        count++;
         swap(&heap[parent], &heap[index]);
         index = parent; 
         parent = index / 2;
@@ -35,5 +36,6 @@ int main() {
     for(int i=1;i<=size;i++){
         printf("%d\t",heap[i]);
     }
+    printf("\nOpcount:%d",count);
     return 0;
 }
